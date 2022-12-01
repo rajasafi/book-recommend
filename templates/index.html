@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommendor System</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+<nav>
+
+  <label class="logo">RecommendMe</label>
+  <ul>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a class="active" href="/recommend">Recommend</a></li>
+    <li><a class="active" href="#">Contacts</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-white" style="margin-top: 3rem " >If You Want Recommended Books Then Click On Recommend In NavBar</h1>
+           <h1 class="text-white" style="margin-top: 2rem " >Top 50 Books</h1>
+        </div>
+
+
+            {% for i in range(book_name|length) %}
+                   <div class="col-md-3" style="margin-top:50px">
+                      <div class="card">
+                         <div class="card-body">
+                             <img class="card-img-top" src="{{ image[i] }}">
+                             <p class="text-black">{{ book_name[i] }}</p>
+                             <h6 class="text-black">{{ author[i] }}</h6>
+                             <h6 class="text-black">Votes - {{ votes[i] }}</h6>
+                             <h6 class="text-black">Rating - {{ rating[i] }}</h6>
+                             <h4 class="text-black">Year - {{ year[i] }}</h4>
+                        </div>
+                    </div>
+                   </div>
+            {% endfor %}
+    </div>
+</div>
+
+<style>
+*{
+padding:0;
+margin:0;
+text-decoration:none;
+list-style:none;
+box-sizing:border-box;
+}
+
+body{
+font-family: montserrat;
+background-color: black;
+}
+
+nav{
+background: #262626;
+height:80px;
+width: 100%;
+}
+
+label.logo{
+color: white;
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;
+}
+
+nav ul{
+ float: right;
+ margin-right: 20px;
+}
+
+nav ul li{
+ display: inline-block;
+ line-height: 80px;
+ margin: 0 5px;
+}
+
+nav ul li a{
+ color:white;
+ font-size: 17px;
+ padding: 7px 13px;
+ border-radius: 3px;
+ text-transform: uppercase;
+}
+
+a.active,a.hover{
+<!--background: #555e55;-->
+background: #1b9bff;
+transition: .5s;
+}
+
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 858px){
+
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+
+
+
+
+</style>
+
+
+
+</body>
+</html>
